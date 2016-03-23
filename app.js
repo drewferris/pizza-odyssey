@@ -12,10 +12,21 @@ function generateDriversNeeded(storeLocation){
   // make variable that is a refence to salesData
   // loop across all time objects in the salesData Array and compute
   // driversNeeded
-  for (var i = 0; i < storeData.length; i++) {
+  for (var i = 0; i < storeData.length; i++){
     storeData[i].driversRecomend = driversNeeded(storeData[i].deliveryMade);
   }
   // add that value to a key called driversRecomend on each time object
+}
+
+function displayTotalPizzaSold(storeLocation){
+  var totalPizzasSold = 0 ;
+  for(var i = 0; i < storeLocation.salesData.length; i++){
+    totalPizzasSold += storeLocation.salesData[i].pizzaSold;
+  }
+  var storeTotalHeading = document.getElementById(storeLocation.name + '-total');
+  if(storeTotalHeading){
+    storeTotalHeading.textContent = storeLocation.name + ' sold ' + totalPizzasSold + ' pizzas.';
+  }
 }
 
 var ballard = {
