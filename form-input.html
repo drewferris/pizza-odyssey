@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>pizza3001 location data</title>
+      <link rel="stylesheet" text="text/css" href="style.css">
+    </head>
+    <body>
+      <section>
+        <h1>Store Location Data</h1>
+        <form id="get-location-form">
+          <fieldset>
+            <legend>Get New Location Data</legend>
+
+            <label name="storeLocation">Store Location:</label>
+            <input name="storeLocation" type="text">
+
+            <label name="minPizzasSold">Min Pizzas Sold:</label>
+            <input name="minPizzasSold" type="text">
+            <button type="submit">Create New Location Data</button>
+
+          </fieldset>
+          <table id="get-ballard-table">
+              <tr>
+                <th>Location</th>
+                <th>Pizzas Sold</th>
+                <th>Pizzas Delivered</th>
+                <th>Drivers Needed</th>
+              </tr>
+          </table>
+        </form>
+      </section>
+      <script src="app.js"></script>
+    </body>
+  </html>
