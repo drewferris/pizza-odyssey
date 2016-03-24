@@ -239,3 +239,59 @@ for(var i = 0; i < ravenna.salesData.length ; i++) {
 
   ravennaTable.appendChild(fnCoolRow);
 };
+
+function collectLocationData(event){
+  event.preventDefault();
+
+  var userStoreLocations = document.getElementById('user-store-locations');
+  var getLocationData = document.createElement('table');
+
+  var getLocationTitle = document.createElement('h1');
+  var getLocation = event.target.getLocation.value;
+  getLocationTitle.textContent = getLocation;
+
+  var dataTime = event.target.dataTime.value;
+  console.log('dataTime', dataTime);
+
+  var minnPizzasSold = parseInt(event.target.minnPizzasSold.value);
+  console.log('minnPizzasSold', minnPizzasSold);
+
+  var maxxPizzasSold = parseInt(event.target.maxxPizzasSold.value);
+
+  var hourlyPizzaSales = getRandomIntInclusive(minnPizzasSold, maxxPizzasSold);
+
+  var minnDeliveriesMade = parseInt(event.target.minnDeliveriesMade.value);
+
+  var maxxDeliveriesMade = parseInt(event.target.maxxDeliveriesMade.value);
+
+  var hourlyDeliveriesMade = getRandomIntInclusive(minnDeliveriesMade, maxxDeliveriesMade);
+
+  var hourlyDriversNeeded = Math.ceil(hourlyDeliveriesMade / 3);
+
+  var dataTimeRow = document.createElement('tr');
+
+  var dataTimeColumn = document.createElement('td');
+  dataTimeColumn.textContent = dataTime;
+  dataTimeRow.appendChild(dataTimeColumn);
+
+  var hourlyPizzaSalesColumn = document.createElement('td');
+  hourlyPizzaSalesColumn.textContent = hourlyPizzaSales;
+  dataTimeRow.appendChild(hourlyPizzaSalesColumn);
+
+  var hourlyDeliveriesMadeColumn = document.createElement('td');
+  hourlyDeliveriesMadeColumn.textContent = hourlyDeliveriesMade;
+  dataTimeRow.appendChild(hourlyDeliveriesMadeColumn);
+
+  var hourlyDriversNeededColumn = document.createElement('td');
+  hourlyDriversNeededColumn.textContent = hourlyDriversNeeded;
+  dataTimeRow.appendChild(hourlyDriversNeededColumn);
+
+  getLocationData.appendChild(dataTimeRow);
+
+  userStoreLocations.appendChild(getLocationTitle);
+  userStoreLocations.appendChild(getLocationData);
+}
+
+var createStoreLocationDataForm = document.getElementById('get-location-data-form');
+
+createStoreLocationDataForm.addEventListener('submit', collectLocationData);

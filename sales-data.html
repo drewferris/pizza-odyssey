@@ -18,8 +18,47 @@
         <table id='georgetown'></table>
       <h1>Ravenna</h1>
         <table id='ravenna'></table>
+      </section>
+      <section id="user-store-locations">
+      </section>
+      <section>
+        <h1>Store Location Data</h1>
+        <form id="get-location-data-form">
+          <fieldset>
+            <legend>Input Location Data</legend>
 
-    </section>
+            <label name="getLocation">Location:</label>
+            <input name="getLocation" type ="text">
+
+            <label name="dataTime">Time:</label>
+            <input name="dataTime" type="text">
+
+            <label name="minnPizzasSold">Min Pizzas Sold:</label>
+            <input name="minnPizzasSold" type="text">
+
+            <label name="maxxPizzasSold">Max Pizzas Sold:</label>
+            <input name="maxxPizzasSold" type="text">
+
+            <label name="minnDeliveriesMade">Min Deliveries Made:</label>
+            <input name="minnDeliveriesMade" type="text">
+
+            <label name="maxxDeliveriesMade">Max Deliveries Made:</label>
+            <input name="maxxDeliveriesMade" type="text">
+
+            <button type="submit">Create New Location Data</button>
+
+          </fieldset>
+          <h1 id="get-new-location-title"><h1>
+          <table id="get-new-location-table">
+              <tr>
+                <th>Time</th>
+                <th>Pizzas Sold</th>
+                <th>Pizzas Delivered</th>
+                <th>Drivers Needed</th>
+              </tr>
+          </table>
+        </form>
+      </section>
     <script src="app.js"></script>
   </body>
 </html>
