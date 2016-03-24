@@ -168,129 +168,118 @@ function genorateHeadingRow(headingArray) {
   return row;
 }
 
-var ballardTable = document.getElementById('ballard');
+renderTableForLocation(ballard);
+renderTableForLocation(ravenna);
+renderTableForLocation(firstHill);
+renderTableForLocation(theInternationalDistrict);
+renderTableForLocation(georgetown);
+renderTableForLocation(southLakeUnion);
 
-var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+function renderTableForLocation(userLocation){
+  var userTable = document.createElement('table');
 
-ballardTable.appendChild(firstRow);
+  var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
 
-for(var i = 0; i < ballard.salesData.length ; i++) {
-  var fnCoolRow = genorateDataRow([ballard.salesData[i].time, ballard.salesData[i].pizzasSold, ballard.salesData[i].deliveriesMade, ballard.salesData[i].driversNeeded]);
+  userTable.appendChild(firstRow);
 
-  ballardTable.appendChild(fnCoolRow);
-};
+  for(var i = 0; i < userLocation.salesData.length ; i++) {
+    var fnCoolRow = genorateDataRow([userLocation.salesData[i].time, userLocation.salesData[i].pizzasSold,userLocation.salesData[i].deliveriesMade,userLocation.salesData[i].driversNeeded]);
 
-var firstHillTable = document.getElementById('firstHill');
+    userTable.appendChild(fnCoolRow);
+  };
 
-var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+  var userLocationSection = document.getElementById('user-store-locations');
 
-firstHillTable.appendChild(firstRow);
+  var userTableHeading = document.createElement('h1');
+  userTableHeading.textContent = userLocation.name;
+  userLocationSection.appendChild(userTableHeading);
 
-for(var i = 0; i < firstHill.salesData.length ; i++) {
-  var fnCoolRow = genorateDataRow([firstHill.salesData[i].time, firstHill.salesData[i].pizzasSold, firstHill.salesData[i].deliveriesMade, firstHill.salesData[i].driversNeeded]);
-
-  firstHillTable.appendChild(fnCoolRow);
-};
-
-var theInternationalDistrictTable = document.getElementById('theInternationalDistrict');
-
-var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
-
-theInternationalDistrictTable.appendChild(firstRow);
-
-for(var i = 0; i < theInternationalDistrict.salesData.length ; i++) {
-  var fnCoolRow = genorateDataRow([theInternationalDistrict.salesData[i].time, theInternationalDistrict.salesData[i].pizzasSold, theInternationalDistrict.salesData[i].deliveriesMade, theInternationalDistrict.salesData[i].driversNeeded]);
-
-  theInternationalDistrictTable.appendChild(fnCoolRow);
-};
-
-var southLakeUnionTable = document.getElementById('southLakeUnion');
-
-var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
-
-southLakeUnionTable.appendChild(firstRow);
-
-for(var i = 0; i < southLakeUnion.salesData.length ; i++) {
-  var fnCoolRow = genorateDataRow([southLakeUnion.salesData[i].time, southLakeUnion.salesData[i].pizzasSold,southLakeUnion.salesData[i].deliveriesMade,southLakeUnion.salesData[i].driversNeeded]);
-
-  southLakeUnionTable.appendChild(fnCoolRow);
-};
-
-var georgetownTable = document.getElementById('georgetown');
-
-var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
-
-georgetownTable.appendChild(firstRow);
-
-for(var i = 0; i < georgetown.salesData.length ; i++) {
-  var fnCoolRow = genorateDataRow([georgetown.salesData[i].time, georgetown.salesData[i].pizzasSold,georgetown.salesData[i].deliveriesMade,georgetown.salesData[i].driversNeeded]);
-
-  georgetownTable.appendChild(fnCoolRow);
-};
-
-var ravennaTable = document.getElementById('ravenna');
-
-var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
-
-ravennaTable.appendChild(firstRow);
-
-for(var i = 0; i < ravenna.salesData.length ; i++) {
-  var fnCoolRow = genorateDataRow([ravenna.salesData[i].time, ravenna.salesData[i].pizzasSold,ravenna.salesData[i].deliveriesMade,ravenna.salesData[i].driversNeeded]);
-
-  ravennaTable.appendChild(fnCoolRow);
-};
+  userLocationSection.appendChild(userTable);
+}
 
 function collectLocationData(event){
   event.preventDefault();
 
-  var userStoreLocations = document.getElementById('user-store-locations');
-  var getLocationData = document.createElement('table');
+  var locationName = event.target.getLocation.value;
+  var firstTime = event.target.dataTime.value;
+  var minnDeliveriesMade = event.target.minnDeliveriesMade.value;
+  var maxxDeliveriesMade = event.target.maxxDeliveriesMade.value;
+  var minnPizzasSold = event.target.minnPizzasSold.value;
+  var maxxPizzasSold = event.target.maxxPizzasSold.value;
 
-  var getLocationTitle = document.createElement('h1');
-  var getLocation = event.target.getLocation.value;
-  getLocationTitle.textContent = getLocation;
-
-  var dataTime = event.target.dataTime.value;
-  console.log('dataTime', dataTime);
-
-  var minnPizzasSold = parseInt(event.target.minnPizzasSold.value);
+  console.log('locationName', locationName);
+  console.log('firstTime', firstTime);
+  console.log('minnDeliveriesMade', minnDeliveriesMade);
+  console.log('maxxDeliveriesMade', maxxDeliveriesMade);
   console.log('minnPizzasSold', minnPizzasSold);
+  console.log('maxxPizzasSold', maxxPizzasSold);
 
-  var maxxPizzasSold = parseInt(event.target.maxxPizzasSold.value);
+  var userLocation = new PizzaLocation(locationName);
+  var salesData = new SalesData(firstTime, minnPizzasSold, maxxPizzasSold, minnDeliveriesMade, maxxDeliveriesMade);
 
-  var hourlyPizzaSales = getRandomIntInclusive(minnPizzasSold, maxxPizzasSold);
+  userLocation.pushSalesData(salesData);
+  userLocation.pushSalesData(salesData);
+  userLocation.pushSalesData(salesData);
+  userLocation.pushSalesData(salesData);
+  userLocation.pushSalesData(salesData);
 
-  var minnDeliveriesMade = parseInt(event.target.minnDeliveriesMade.value);
+  renderTableForLocation(userLocation);
+  console.log(userLocation);
 
-  var maxxDeliveriesMade = parseInt(event.target.maxxDeliveriesMade.value);
 
-  var hourlyDeliveriesMade = getRandomIntInclusive(minnDeliveriesMade, maxxDeliveriesMade);
 
-  var hourlyDriversNeeded = Math.ceil(hourlyDeliveriesMade / 3);
-
-  var dataTimeRow = document.createElement('tr');
-
-  var dataTimeColumn = document.createElement('td');
-  dataTimeColumn.textContent = dataTime;
-  dataTimeRow.appendChild(dataTimeColumn);
-
-  var hourlyPizzaSalesColumn = document.createElement('td');
-  hourlyPizzaSalesColumn.textContent = hourlyPizzaSales;
-  dataTimeRow.appendChild(hourlyPizzaSalesColumn);
-
-  var hourlyDeliveriesMadeColumn = document.createElement('td');
-  hourlyDeliveriesMadeColumn.textContent = hourlyDeliveriesMade;
-  dataTimeRow.appendChild(hourlyDeliveriesMadeColumn);
-
-  var hourlyDriversNeededColumn = document.createElement('td');
-  hourlyDriversNeededColumn.textContent = hourlyDriversNeeded;
-  dataTimeRow.appendChild(hourlyDriversNeededColumn);
-
-  getLocationData.appendChild(dataTimeRow);
-
-  userStoreLocations.appendChild(getLocationTitle);
-  userStoreLocations.appendChild(getLocationData);
 }
+// function collectLocationData(event){
+//   event.preventDefault();
+//
+//   var userStoreLocations = document.getElementById('user-store-locations');
+//   var getLocationData = document.createElement('table');
+//
+//   var getLocationTitle = document.createElement('h1');
+//   var getLocation = event.target.getLocation.value;
+//   getLocationTitle.textContent = getLocation;
+//
+//   var dataTime = event.target.dataTime.value;
+//   console.log('dataTime', dataTime);
+//
+//   var minnPizzasSold = parseInt(event.target.minnPizzasSold.value);
+//   console.log('minnPizzasSold', minnPizzasSold);
+//
+//   var maxxPizzasSold = parseInt(event.target.maxxPizzasSold.value);
+//
+//   var hourlyPizzaSales = getRandomIntInclusive(minnPizzasSold, maxxPizzasSold);
+//
+//   var minnDeliveriesMade = parseInt(event.target.minnDeliveriesMade.value);
+//
+//   var maxxDeliveriesMade = parseInt(event.target.maxxDeliveriesMade.value);
+//
+//   var hourlyDeliveriesMade = getRandomIntInclusive(minnDeliveriesMade, maxxDeliveriesMade);
+//
+//   var hourlyDriversNeeded = Math.ceil(hourlyDeliveriesMade / 3);
+//
+//   var dataTimeRow = document.createElement('tr');
+//
+//   var dataTimeColumn = document.createElement('td');
+//   dataTimeColumn.textContent = dataTime;
+//   dataTimeRow.appendChild(dataTimeColumn);
+//
+//   var hourlyPizzaSalesColumn = document.createElement('td');
+//   hourlyPizzaSalesColumn.textContent = hourlyPizzaSales;
+//   dataTimeRow.appendChild(hourlyPizzaSalesColumn);
+//
+//   var hourlyDeliveriesMadeColumn = document.createElement('td');
+//   hourlyDeliveriesMadeColumn.textContent = hourlyDeliveriesMade;
+//   dataTimeRow.appendChild(hourlyDeliveriesMadeColumn);
+//
+//   var hourlyDriversNeededColumn = document.createElement('td');
+//   hourlyDriversNeededColumn.textContent = hourlyDriversNeeded;
+//   dataTimeRow.appendChild(hourlyDriversNeededColumn);
+//
+//   getLocationData.appendChild(dataTimeRow);
+//
+//   userStoreLocations.appendChild(getLocationTitle);
+//   userStoreLocations.appendChild(getLocationData);
+// }
 
 var createStoreLocationDataForm = document.getElementById('get-location-data-form');
 
