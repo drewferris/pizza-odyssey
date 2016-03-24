@@ -4,7 +4,6 @@ function getRandomIntInclusive(min, max) {
 
 function PizzaLocation(name) {
   this.name = name;
-  this.allSalesData = [];
   this.salesData = [];
 }
 
@@ -19,18 +18,131 @@ function SalesData(time, minPizzasSold, maxPizzasSold, minDeliveriesMade, maxDel
   this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
 }
 
-function AllSalesData(salesData) {
-  this.allSalesData = [];
-}
-
-PizzaLocation.prototype.pushAllSalesData = function(totalData){
-  this.allSalesData.push(totalData);
-};
-
 var ballard = new PizzaLocation('ballard');
+
 ballard.pushSalesData(new SalesData('8:00 am', 0, 3, 1, 7));
 ballard.pushSalesData(new SalesData('9:00 am', 0, 3, 1, 7));
 ballard.pushSalesData(new SalesData('10:00 am', 0, 3, 1, 7));
+ballard.pushSalesData(new SalesData('11:00 am', 5, 10, 2, 8));
+ballard.pushSalesData(new SalesData('12:00 am', 5, 10, 2, 8));
+ballard.pushSalesData(new SalesData('1:00 pm', 5, 10, 2, 8));
+ballard.pushSalesData(new SalesData('2:00 pm', 2, 13, 1, 7));
+ballard.pushSalesData(new SalesData('3:00 pm', 2, 13, 1, 7));
+ballard.pushSalesData(new SalesData('4:00 pm', 2, 13, 1, 7));
+ballard.pushSalesData(new SalesData('5:00 pm', 0, 15, 2, 9));
+ballard.pushSalesData(new SalesData('6:00 pm', 0, 15, 2, 9));
+ballard.pushSalesData(new SalesData('7:00 pm', 0, 15, 2, 9));
+ballard.pushSalesData(new SalesData('8:00 pm', 1, 3, 4, 12));
+ballard.pushSalesData(new SalesData('9:00 pm', 1, 3, 4, 12));
+ballard.pushSalesData(new SalesData('10:00 pm', 1, 3, 4, 12));
+ballard.pushSalesData(new SalesData('11:00 pm', 8, 15, 6, 16));
+ballard.pushSalesData(new SalesData('12:00 pm', 8, 15, 6, 16));
+ballard.pushSalesData(new SalesData('1:00 am', 8, 15, 6, 16));
+
+var firstHill = new PizzaLocation('firstHill');
+
+firstHill.pushSalesData(new SalesData('8:00 am', 1, 3, 1, 7));
+firstHill.pushSalesData(new SalesData('9:00 am', 1, 3, 1, 7));
+firstHill.pushSalesData(new SalesData('10:00 am', 1, 3, 1, 7));
+firstHill.pushSalesData(new SalesData('11:00 am', 5, 9, 2, 8));
+firstHill.pushSalesData(new SalesData('12:00 am', 5, 9, 2, 8));
+firstHill.pushSalesData(new SalesData('1:00 pm', 5, 9, 2, 8));
+firstHill.pushSalesData(new SalesData('2:00 pm', 2, 13, 1, 6));
+firstHill.pushSalesData(new SalesData('3:00 pm', 2, 13, 1, 6));
+firstHill.pushSalesData(new SalesData('4:00 pm', 2, 13, 1, 6));
+firstHill.pushSalesData(new SalesData('5:00 pm', 18, 32, 3, 9));
+firstHill.pushSalesData(new SalesData('6:00 pm', 18, 32, 3, 9));
+firstHill.pushSalesData(new SalesData('7:00 pm', 18, 32, 3, 9));
+firstHill.pushSalesData(new SalesData('8:00 pm', 1, 3, 5, 12));
+firstHill.pushSalesData(new SalesData('9:00 pm', 1, 3, 5, 12));
+firstHill.pushSalesData(new SalesData('10:00 pm', 1, 3, 5, 12));
+firstHill.pushSalesData(new SalesData('11:00 pm', 8, 20, 6, 16));
+firstHill.pushSalesData(new SalesData('12:00 pm', 8, 20, 6, 16));
+firstHill.pushSalesData(new SalesData('1:00 am', 8, 20, 6, 16));
+
+var theInternationalDistrict = new PizzaLocation('theInternationalDistrict');
+
+theInternationalDistrict.pushSalesData(new SalesData('8:00 am', 0, 4, 0, 4));
+theInternationalDistrict.pushSalesData(new SalesData('9:00 am', 0, 4, 0, 4));
+theInternationalDistrict.pushSalesData(new SalesData('10:00 am', 0, 4, 0, 4));
+theInternationalDistrict.pushSalesData(new SalesData('11:00 am', 0, 7, 0, 4));
+theInternationalDistrict.pushSalesData(new SalesData('12:00 am', 0, 7, 0, 4));
+theInternationalDistrict.pushSalesData(new SalesData('1:00 pm', 0, 7, 0, 4));
+theInternationalDistrict.pushSalesData(new SalesData('2:00 pm', 2, 15, 1, 4));
+theInternationalDistrict.pushSalesData(new SalesData('3:00 pm', 2, 15, 1, 4));
+theInternationalDistrict.pushSalesData(new SalesData('4:00 pm', 2, 15, 1, 4));
+theInternationalDistrict.pushSalesData(new SalesData('5:00 pm', 10, 26, 4, 6));
+theInternationalDistrict.pushSalesData(new SalesData('6:00 pm', 10, 26, 4, 6));
+theInternationalDistrict.pushSalesData(new SalesData('7:00 pm', 10, 26, 4, 6));
+theInternationalDistrict.pushSalesData(new SalesData('8:00 pm', 8, 22, 7, 15));
+theInternationalDistrict.pushSalesData(new SalesData('9:00 pm', 8, 22, 7, 15));
+theInternationalDistrict.pushSalesData(new SalesData('10:00 pm', 8, 22, 7, 15));
+theInternationalDistrict.pushSalesData(new SalesData('11:00 pm', 0, 2, 2, 8));
+theInternationalDistrict.pushSalesData(new SalesData('12:00 pm', 0, 2, 2, 8));
+theInternationalDistrict.pushSalesData(new SalesData('1:00 am', 0, 2, 2, 8));
+
+var southLakeUnion = new PizzaLocation('southLakeUnion');
+
+southLakeUnion.pushSalesData(new SalesData('8:00 am', 0, 4, 0, 4));
+southLakeUnion.pushSalesData(new SalesData('9:00 am', 0, 4, 0, 4));
+southLakeUnion.pushSalesData(new SalesData('10:00 am', 0, 4, 0, 4));
+southLakeUnion.pushSalesData(new SalesData('11:00 am', 0, 7, 0, 4));
+southLakeUnion.pushSalesData(new SalesData('12:00 am', 0, 7, 0, 4));
+southLakeUnion.pushSalesData(new SalesData('1:00 pm', 0, 7, 0, 4));
+southLakeUnion.pushSalesData(new SalesData('2:00 pm', 2, 15, 1, 4));
+southLakeUnion.pushSalesData(new SalesData('3:00 pm', 2, 15, 1, 4));
+southLakeUnion.pushSalesData(new SalesData('4:00 pm', 2, 15, 1, 4));
+southLakeUnion.pushSalesData(new SalesData('5:00 pm', 10, 26, 4, 6));
+southLakeUnion.pushSalesData(new SalesData('6:00 pm', 10, 26, 4, 6));
+southLakeUnion.pushSalesData(new SalesData('7:00 pm', 10, 26, 4, 6));
+southLakeUnion.pushSalesData(new SalesData('8:00 pm', 8, 22, 7, 15));
+southLakeUnion.pushSalesData(new SalesData('9:00 pm', 8, 22, 7, 15));
+southLakeUnion.pushSalesData(new SalesData('10:00 pm', 8, 22, 7, 15));
+southLakeUnion.pushSalesData(new SalesData('11:00 pm', 0, 2, 2, 8));
+southLakeUnion.pushSalesData(new SalesData('12:00 pm', 0, 2, 2, 8));
+southLakeUnion.pushSalesData(new SalesData('1:00 am', 0, 2, 2, 8));
+
+var georgetown = new PizzaLocation('georgetown');
+
+georgetown.pushSalesData(new SalesData('8:00 am', 2, 7, 3, 5));
+georgetown.pushSalesData(new SalesData('9:00 am', 2, 7, 3, 5));
+georgetown.pushSalesData(new SalesData('10:00 am', 2, 7, 3, 5));
+georgetown.pushSalesData(new SalesData('11:00 am', 3, 8, 3, 9));
+georgetown.pushSalesData(new SalesData('12:00 am', 3, 8, 3, 9));
+georgetown.pushSalesData(new SalesData('1:00 pm', 3, 8, 3, 9));
+georgetown.pushSalesData(new SalesData('2:00 pm', 1, 5, 1, 4));
+georgetown.pushSalesData(new SalesData('3:00 pm', 1, 5, 1, 4));
+georgetown.pushSalesData(new SalesData('4:00 pm', 1, 5, 1, 4));
+georgetown.pushSalesData(new SalesData('5:00 pm', 5, 13, 2, 4));
+georgetown.pushSalesData(new SalesData('6:00 pm', 5, 13, 2, 4));
+georgetown.pushSalesData(new SalesData('7:00 pm', 5, 13, 2, 4));
+georgetown.pushSalesData(new SalesData('8:00 pm', 22, 41, 15, 42));
+georgetown.pushSalesData(new SalesData('9:00 pm', 22, 41, 15, 42));
+georgetown.pushSalesData(new SalesData('10:00 pm', 22, 41, 15, 42));
+georgetown.pushSalesData(new SalesData('11:00 pm', 15, 20, 6, 21));
+georgetown.pushSalesData(new SalesData('12:00 pm', 15, 20, 6, 21));
+georgetown.pushSalesData(new SalesData('1:00 am', 15, 20, 6, 21));
+
+var ravenna = new PizzaLocation('ravenna');
+
+ravenna.pushSalesData(new SalesData('8:00 am', 2, 7, 3, 5));
+ravenna.pushSalesData(new SalesData('9:00 am', 2, 7, 3, 5));
+ravenna.pushSalesData(new SalesData('10:00 am', 2, 7, 3, 5));
+ravenna.pushSalesData(new SalesData('11:00 am', 3, 8, 3, 9));
+ravenna.pushSalesData(new SalesData('12:00 am', 3, 8, 3, 9));
+ravenna.pushSalesData(new SalesData('1:00 pm', 3, 8, 3, 9));
+ravenna.pushSalesData(new SalesData('2:00 pm', 1, 5, 1, 4));
+ravenna.pushSalesData(new SalesData('3:00 pm', 1, 5, 1, 4));
+ravenna.pushSalesData(new SalesData('4:00 pm', 1, 5, 1, 4));
+ravenna.pushSalesData(new SalesData('5:00 pm', 5, 13, 2, 4));
+ravenna.pushSalesData(new SalesData('6:00 pm', 5, 13, 2, 4));
+ravenna.pushSalesData(new SalesData('7:00 pm', 5, 13, 2, 4));
+ravenna.pushSalesData(new SalesData('8:00 pm', 22, 41, 15, 42));
+ravenna.pushSalesData(new SalesData('9:00 pm', 22, 41, 15, 42));
+ravenna.pushSalesData(new SalesData('10:00 pm', 22, 41, 15, 42));
+ravenna.pushSalesData(new SalesData('11:00 pm', 15, 20, 6, 21));
+ravenna.pushSalesData(new SalesData('12:00 pm', 15, 20, 6, 21));
+ravenna.pushSalesData(new SalesData('1:00 am', 15, 20, 6, 21));
 
 function genorateDataRow(rowArray) {
   var row = document.createElement('tr');
@@ -39,7 +151,7 @@ function genorateDataRow(rowArray) {
     col = document.createElement ('td');
     col.textContent = rowArray[i];
     row.appendChild(col);
-    document.getElementById('ballard').appendChild(row);
+
   }
   return row;
 }
@@ -51,565 +163,79 @@ function genorateHeadingRow(headingArray) {
     col = document.createElement('th');
     col.textContent = headingArray[i];
     row.appendChild(col);
-    document.getElementById('ballard').appendChild(row);
+
   }
   return row;
 }
-for(var i = 0; i < ballard.allSalesData.length; i++){
-  eachData = ballard.allSalesData[i];
 
-  for(var i = 0; i < ballard.salesData.length ; i++) {
-    hourData = ballard.salesData[i];
-    rowStringArray = [hourData.time, hourData.pizzasSold, hourData.deliveriesMade, hourData.driversNeeded];
-  }
-}
-
-var ballardTable = document.createElement('table');
+var ballardTable = document.getElementById('ballard');
 
 var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
-var secondRow = genorateDataRow(rowStringArray);
-var thirdRow = genorateDataRow(rowStringArray);
-var fourthRow = genorateDataRow(rowStringArray);
 
-// function driversNeeded(deliveryMade) {
-//   return Math.ceil(deliveryMade / 3);
-// }
-//
-// function generateDriversNeeded(storeLocation){
-//   var storeData = storeLocation.salesData;
-//   for (var i = 0; i < storeData.length; i++){
-//     storeData[i].driversRecomend = driversNeeded(storeData[i].deliveryMade);
-//   }
-// }
+ballardTable.appendChild(firstRow);
 
-// function displayTotalPizzaSold(storeLocation){
-//   var totalPizzasSold = 0 ;
-//   for(var i = 0; i < storeLocation.salesData.length; i++){
-//     totalPizzasSold += storeLocation.salesData[i].pizzaSold;
-//   }
-//   var storeTotalHeading = document.getElementById(storeLocation.name + '-total');
-//   if(storeTotalHeading){
-//     storeTotalHeading.textContent = storeLocation.name + ' sold ' + totalPizzasSold + ' pizzas.';
-//   }
-// }
+for(var i = 0; i < ballard.salesData.length ; i++) {
+  var fnCoolRow = genorateDataRow([ballard.salesData[i].time, ballard.salesData[i].pizzasSold, ballard.salesData[i].deliveriesMade, ballard.salesData[i].driversNeeded]);
 
-// var ballard = {
-//   name: 'ballard',
-//   salesData: [
-//     {time: '8:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '9:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//    },
-//     {time: '10:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '11:00 am',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '12:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '1:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '2:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '3:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '4:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '5:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '6:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '7:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '8:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '9:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '10:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '11:00 pm',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '12:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '1:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '2:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     }
-//   ]
-// };
-//
-// var firstHill = {
-//   name: 'firstHill',
-//   salesData: [
-//     {time: '8:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '9:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//    },
-//     {time: '10:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '11:00 am',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '12:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '1:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '2:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '3:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '4:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '5:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '6:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '7:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '8:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '9:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '10:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '11:00 pm',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '12:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '1:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '2:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     }
-//   ]
-// };
-//
-// var theInternationalDistrict = {
-//   name: 'theInternationalDistrict',
-//   salesData: [
-//     {time: '8:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '9:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//    },
-//     {time: '10:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '11:00 am',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '12:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '1:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '2:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '3:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '4:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '5:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '6:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '7:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '8:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '9:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '10:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '11:00 pm',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '12:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '1:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '2:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     }
-//   ]
-// };
-//
-// var southLakeUnion = {
-//   name: 'southLakeUnion',
-//   salesData: [
-//     {time: '8:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '9:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//    },
-//     {time: '10:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '11:00 am',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '12:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '1:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '2:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '3:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '4:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '5:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '6:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '7:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '8:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '9:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '10:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '11:00 pm',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '12:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '1:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '2:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     }
-//   ]
-// };
-//
-// var georgetown = {
-//   name: 'georgetown',
-//   salesData: [
-//     {time: '8:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '9:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//    },
-//     {time: '10:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '11:00 am',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '12:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '1:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '2:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '3:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '4:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '5:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '6:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '7:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '8:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '9:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '10:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '11:00 pm',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '12:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '1:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '2:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     }
-//   ]
-// };
-//
-// var ravenna = {
-//   name: 'ravenna',
-//   salesData: [
-//     {time: '8:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '9:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//    },
-//     {time: '10:00 am',
-//      pizzaSold: getRandomIntInclusive(0,4),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '11:00 am',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '12:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '1:00 pm',
-//      pizzaSold: getRandomIntInclusive(0,7),
-//      deliveryMade: getRandomIntInclusive(0,4),
-//     },
-//     {time: '2:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '3:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '4:00 pm',
-//      pizzaSold: getRandomIntInclusive(2,15),
-//      deliveryMade: getRandomIntInclusive(1,4),
-//     },
-//     {time: '5:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '6:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '7:00 pm',
-//      pizzaSold: getRandomIntInclusive(15,35),
-//      deliveryMade: getRandomIntInclusive(3,8),
-//     },
-//     {time: '8:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '9:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '10:00 pm',
-//      pizzaSold: getRandomIntInclusive(12,31),
-//      deliveryMade: getRandomIntInclusive(5,12),
-//     },
-//     {time: '11:00 pm',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '12:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '1:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     },
-//     {time: '2:00 am',
-//      pizzaSold: getRandomIntInclusive(5,20),
-//      deliveryMade: getRandomIntInclusive(6,11),
-//     }
-//   ]
-// };
-//
-// function generateListForLocation(storeLocation) {
-//   var storeUL = document.getElementById(storeLocation.name);
-//   var hourLi;
-//
-//   for(var i = 0; i < storeLocation.salesData.length; i++ ){
-//     hourLi = document.createElement('li');
-//     hourLi.textContent = storeLocation.salesData[i].time + ' ' + storeLocation.salesData[i].pizzaSold + ' pizzas, ' + storeLocation.salesData[i].deliveryMade + ' deliveries ' + '-- [ drivers recommended: ' + storeLocation.salesData[i].driversRecomend + ' ]';
-//     storeUL.appendChild(hourLi);
-//   }
-// }
+  ballardTable.appendChild(fnCoolRow);
+};
 
-// generateDriversNeeded(ballard);
-// generateListForLocation(ballard);
+var firstHillTable = document.getElementById('firstHill');
 
-// generateDriversNeeded(firstHill);
-// generateListForLocation(firstHill);
-//
-// generateDriversNeeded(theInternationalDistrict);
-// generateListForLocation(theInternationalDistrict);
-//
-// generateDriversNeeded(southLakeUnion);
-// generateListForLocation(southLakeUnion);
-//
-// generateDriversNeeded(georgetown);
-// generateListForLocation(georgetown);
-//
-// generateDriversNeeded(ravenna);
-// generateListForLocation(ravenna);
+var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+
+firstHillTable.appendChild(firstRow);
+
+for(var i = 0; i < firstHill.salesData.length ; i++) {
+  var fnCoolRow = genorateDataRow([firstHill.salesData[i].time, firstHill.salesData[i].pizzasSold, firstHill.salesData[i].deliveriesMade, firstHill.salesData[i].driversNeeded]);
+
+  firstHillTable.appendChild(fnCoolRow);
+};
+
+var theInternationalDistrictTable = document.getElementById('theInternationalDistrict');
+
+var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+
+theInternationalDistrictTable.appendChild(firstRow);
+
+for(var i = 0; i < theInternationalDistrict.salesData.length ; i++) {
+  var fnCoolRow = genorateDataRow([theInternationalDistrict.salesData[i].time, theInternationalDistrict.salesData[i].pizzasSold, theInternationalDistrict.salesData[i].deliveriesMade, theInternationalDistrict.salesData[i].driversNeeded]);
+
+  theInternationalDistrictTable.appendChild(fnCoolRow);
+};
+
+var southLakeUnionTable = document.getElementById('southLakeUnion');
+
+var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+
+southLakeUnionTable.appendChild(firstRow);
+
+for(var i = 0; i < southLakeUnion.salesData.length ; i++) {
+  var fnCoolRow = genorateDataRow([southLakeUnion.salesData[i].time, southLakeUnion.salesData[i].pizzasSold,southLakeUnion.salesData[i].deliveriesMade,southLakeUnion.salesData[i].driversNeeded]);
+
+  southLakeUnionTable.appendChild(fnCoolRow);
+};
+
+var georgetownTable = document.getElementById('georgetown');
+
+var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+
+georgetownTable.appendChild(firstRow);
+
+for(var i = 0; i < georgetown.salesData.length ; i++) {
+  var fnCoolRow = genorateDataRow([georgetown.salesData[i].time, georgetown.salesData[i].pizzasSold,georgetown.salesData[i].deliveriesMade,georgetown.salesData[i].driversNeeded]);
+
+  georgetownTable.appendChild(fnCoolRow);
+};
+
+var ravennaTable = document.getElementById('ravenna');
+
+var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+
+ravennaTable.appendChild(firstRow);
+
+for(var i = 0; i < ravenna.salesData.length ; i++) {
+  var fnCoolRow = genorateDataRow([ravenna.salesData[i].time, ravenna.salesData[i].pizzasSold,ravenna.salesData[i].deliveriesMade,ravenna.salesData[i].driversNeeded]);
+
+  ravennaTable.appendChild(fnCoolRow);
+};
