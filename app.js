@@ -177,7 +177,7 @@ renderTableForLocation(southLakeUnion);
 
 function renderTableForLocation(userLocation){
   var userTable = document.createElement('table');
-
+  userTable.setAttribute('id', userLocation.name);
   var firstRow = genorateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
 
   userTable.appendChild(firstRow);
@@ -201,85 +201,34 @@ function collectLocationData(event){
   event.preventDefault();
 
   var locationName = event.target.getLocation.value;
-  var firstTime = event.target.dataTime.value;
-  var minnDeliveriesMade = event.target.minnDeliveriesMade.value;
-  var maxxDeliveriesMade = event.target.maxxDeliveriesMade.value;
-  var minnPizzasSold = event.target.minnPizzasSold.value;
-  var maxxPizzasSold = event.target.maxxPizzasSold.value;
+  var time = event.target.time.value;
+  var minDeliveriesMade = parseInt(event.target.minDeliveriesMade.value);
+  var maxDeliveriesMade = parseInt(event.target.maxDeliveriesMade.value);
+  var minPizzasSold = parseInt(event.target.minPizzasSold.value);
+  var maxPizzasSold = parseInt(event.target.maxPizzasSold.value);
 
   console.log('locationName', locationName);
-  console.log('firstTime', firstTime);
-  console.log('minnDeliveriesMade', minnDeliveriesMade);
-  console.log('maxxDeliveriesMade', maxxDeliveriesMade);
-  console.log('minnPizzasSold', minnPizzasSold);
-  console.log('maxxPizzasSold', maxxPizzasSold);
+  console.log('time', time);
+  console.log('minDeliveriesMade', minDeliveriesMade);
+  console.log('maxDeliveriesMade', maxDeliveriesMade);
+  console.log('minPizzasSold', minPizzasSold);
+  console.log('maxPizzasSold', maxPizzasSold);
 
   var userLocation = new PizzaLocation(locationName);
-  var salesData = new SalesData(firstTime, minnPizzasSold, maxxPizzasSold, minnDeliveriesMade, maxxDeliveriesMade);
+  var salesData = new SalesData(time, minPizzasSold, maxPizzasSold, minDeliveriesMade, maxDeliveriesMade);
 
   userLocation.pushSalesData(salesData);
-  userLocation.pushSalesData(salesData);
-  userLocation.pushSalesData(salesData);
-  userLocation.pushSalesData(salesData);
-  userLocation.pushSalesData(salesData);
 
-  renderTableForLocation(userLocation);
-  console.log(userLocation);
-
-
+  if (document.getElementById(locationName)){
+    var fnCoolRow = genorateDataRow([salesData.time, salesData.pizzasSold, salesData.deliveriesMade, salesData.driversNeeded]);
+    document.getElementById(locationName).appendChild(fnCoolRow);
+  }
+    else {
+    renderTableForLocation(userLocation);
+  }
+  console.log('the user location is ', userLocation);
 
 }
-// function collectLocationData(event){
-//   event.preventDefault();
-//
-//   var userStoreLocations = document.getElementById('user-store-locations');
-//   var getLocationData = document.createElement('table');
-//
-//   var getLocationTitle = document.createElement('h1');
-//   var getLocation = event.target.getLocation.value;
-//   getLocationTitle.textContent = getLocation;
-//
-//   var dataTime = event.target.dataTime.value;
-//   console.log('dataTime', dataTime);
-//
-//   var minnPizzasSold = parseInt(event.target.minnPizzasSold.value);
-//   console.log('minnPizzasSold', minnPizzasSold);
-//
-//   var maxxPizzasSold = parseInt(event.target.maxxPizzasSold.value);
-//
-//   var hourlyPizzaSales = getRandomIntInclusive(minnPizzasSold, maxxPizzasSold);
-//
-//   var minnDeliveriesMade = parseInt(event.target.minnDeliveriesMade.value);
-//
-//   var maxxDeliveriesMade = parseInt(event.target.maxxDeliveriesMade.value);
-//
-//   var hourlyDeliveriesMade = getRandomIntInclusive(minnDeliveriesMade, maxxDeliveriesMade);
-//
-//   var hourlyDriversNeeded = Math.ceil(hourlyDeliveriesMade / 3);
-//
-//   var dataTimeRow = document.createElement('tr');
-//
-//   var dataTimeColumn = document.createElement('td');
-//   dataTimeColumn.textContent = dataTime;
-//   dataTimeRow.appendChild(dataTimeColumn);
-//
-//   var hourlyPizzaSalesColumn = document.createElement('td');
-//   hourlyPizzaSalesColumn.textContent = hourlyPizzaSales;
-//   dataTimeRow.appendChild(hourlyPizzaSalesColumn);
-//
-//   var hourlyDeliveriesMadeColumn = document.createElement('td');
-//   hourlyDeliveriesMadeColumn.textContent = hourlyDeliveriesMade;
-//   dataTimeRow.appendChild(hourlyDeliveriesMadeColumn);
-//
-//   var hourlyDriversNeededColumn = document.createElement('td');
-//   hourlyDriversNeededColumn.textContent = hourlyDriversNeeded;
-//   dataTimeRow.appendChild(hourlyDriversNeededColumn);
-//
-//   getLocationData.appendChild(dataTimeRow);
-//
-//   userStoreLocations.appendChild(getLocationTitle);
-//   userStoreLocations.appendChild(getLocationData);
-// }
 
 var createStoreLocationDataForm = document.getElementById('get-location-data-form');
 
