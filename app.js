@@ -233,3 +233,12 @@ function collectLocationData(event){
 var createStoreLocationDataForm = document.getElementById('get-location-data-form');
 
 createStoreLocationDataForm.addEventListener('submit', collectLocationData);
+
+function totalPizzaSales() {
+  var howManyPizzas = getRandomIntInclusive(5, 9999);
+  var soManyPizzas = document.createElement('p');
+  soManyPizzas.textContent = howManyPizzas + ' happy pizza odysseys this week!';
+
+  document.getElementById('total-pizza-sales').appendChild(soManyPizzas);
+}
+totalPizzaSales();

@@ -2,6 +2,29 @@ table, th, td {
   border: 1px solid black;
 }
 
-/*body {
-  background-color: #ffaaaa
-}*/
+body {
+  background-color: #9C82FF;
+  margin:0 auto;
+  width:300px;
+
+}
+
+li{
+  background-color: #DEA2E8;
+  font-family: 'Lobster', cursive;
+  width: 120px;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  background-color: #DEA2E8;
+  width: 120px;
+}
+
+.store-names {
+  width: 90px;
+  background-color: #8EFFFB
+}
+
+.store-address {
+}
